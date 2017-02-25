@@ -9,6 +9,11 @@ Visitas <%= @article.visits_count %>
 
 <%= link_to "Editar", edit_article_path(@article) %>
 
+
+<div class="field">
+	<%= image_tag @article.cover.url(:thumb)%>
+</div>
+
 <div class="field">
 <h3>Comentarios</h3>
 <%= render "comments/form" %>
