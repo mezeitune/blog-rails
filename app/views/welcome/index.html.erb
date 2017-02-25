@@ -1,0 +1,6 @@
+ <% if user_signed_in? %>
+<h1>Bienvenido <%= current_user.email  %></h1>
+<%else%>
+<h1>Bienvenidos a mi blog </h1>
+<%end%>
+

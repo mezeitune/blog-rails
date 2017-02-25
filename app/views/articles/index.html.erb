@@ -1,0 +1,7 @@
+<%= @articles.inspect %>
+<% @articles.each do |article| %>
+	<h1><%= link_to article.title, article%> ID:<%= article.id %></h1>
+	<div>
+		<%= article.body %> - <%= link_to "Elimminar",article, method: :delete %>
+	</div>
+<%end%>
