@@ -17,11 +17,13 @@ class ArticlesController < ApplicationController
 	#GET /articles/new
 	def new
 		@article = Article.new #creo un nuevo articulo , pero aun no esta en la db
+		@categories=Category.all
 	end
 
 	#POST /articles
 	def create
 		@article = current_user.articles.new(article_params)
+		@article.categories = params[:categories]
 #o tambien :
 #@article = current_user.articles.new(title: params[:article][:title],body: params[:article][:body])
 
@@ -67,7 +69,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def article_params
-		params.require(:article).permit(:title,:body,:cover)
+		params.require(:article).permit(:title,:body,:cover,:categories)
 	end
 
 

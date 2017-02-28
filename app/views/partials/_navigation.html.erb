@@ -6,13 +6,14 @@
   				</li>	
   				<li class="col-md">
   					<%= link_to "Articulos", articles_path() %>
+
   				</li>	
-  				<li class="col-md">
-  					Programacion
-  				</li>	
-  				<li class="col-md">
-  					Tecnologia
-  				</li>	
+  	     <% @categories.each do |category|%>
+            <li class="col-md">
+             <%= link_to category.name, category %>
+
+          </li> 
+         <%end%>
           <% if user_signed_in? %>
             <li class="col-md">
               <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete %>

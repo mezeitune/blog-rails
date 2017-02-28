@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :categories
   devise_for :users
   resources :articles do # recursos anidados para poder usarlo asi , articles/3/comments
   	resources :comments, only: [:create,:destroy,:update]
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
 =end
 
   get 'welcome/index'
+  get 'welcome/changesToDo'
 
 
 
