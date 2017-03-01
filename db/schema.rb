@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228035322) do
+ActiveRecord::Schema.define(version: 20170301004207) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "visits_count"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "user_id"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "state",              default: "in_draft"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170228035322) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "permission_level",       default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -23,7 +23,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'rails_12factor', group: :production
-
+gem 'aasm'
+gem 'will_paginate'
 gem 'jquery-turbolinks'
 gem 'paperclip'
 gem 'devise' # LA USO PARA LA AUTENTICACION DE USUARIOS , LUEGO HAY QUE DARLE BUNDLE INSTALL, luego rails g devise:install

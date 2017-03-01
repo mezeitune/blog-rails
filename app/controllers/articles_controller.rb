@@ -2,9 +2,12 @@ class ArticlesController < ApplicationController
 	#before_action :validate_user, except: [:show,:index] 
 	before_action :authenticate_user!, except: [:show,:index] 
 	before_action :set_article, except: [:index,:new,:create]
+	before_action :authenticate_editor!, only: [:new,:create,:update]
+	before_action :authenticate_admin!, only: [:destroy,:publish]
 	#GET /articles
 	def index
-		@articles = Article.all
+		#@articles = Article.publicados.ultimos #Usando scopes encadenados , esto es sin el paginate
+		@articles = Article.paginate(page: params[:page],per_page: 5).publicados.ultimos
 	end
 
 	#GET /articles/:id
@@ -32,6 +35,11 @@ class ArticlesController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	def publish
+		@article.publish!
+		redirect_to @article
 	end
 
 	def destroy

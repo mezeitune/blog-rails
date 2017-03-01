@@ -19,7 +19,8 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'welcome/changesToDo'
-
+  get '/dashboard', to: "welcome#dashboard"
+  put "/articles/:id/publish", to: "articles#publish"
 
 
 get '*path' => redirect('/') #Por si pone una URL inexistente  , lo redirecciona
