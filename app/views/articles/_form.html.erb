@@ -12,6 +12,7 @@ Portada: <%= f.file_field :cover %>
 	<%= f.text_area :body,placeholder:"Escribe aqui el articulo" %>
 </div>
 
+
 <div class="field">
 	<label>Categorias</label>
 	<% @categories.each do |category| %>
@@ -25,3 +26,4 @@ Portada: <%= f.file_field :cover %>
 	<%= f.submit "Guardar" %>
 </div>
 <%end%>
+

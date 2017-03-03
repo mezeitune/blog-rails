@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 	#GET /articles
 	def index
 		#@articles = Article.publicados.ultimos #Usando scopes encadenados , esto es sin el paginate
-		@articles = Article.paginate(page: params[:page],per_page: 5).publicados.ultimos
+		@articles = Article.paginate(page: params[:page],per_page: 10).publicados.ultimos
 	end
 
 	#GET /articles/:id

@@ -5,6 +5,7 @@ Escrito por<%= @article.user.email %>
 <%end%>
 Visitas <%= @article.visits_count %>
 <div>
+
 <%= @article.body %>
 
 <%= link_to "Editar", edit_article_path(@article) %>
