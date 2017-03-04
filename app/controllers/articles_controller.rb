@@ -46,6 +46,7 @@ class ArticlesController < ApplicationController
 	#PUT /articles/json/toJson
 	def toJson
 		@articleIdObject = Article.find(params[:id])
+		render :json => @articleIdObject
 	end
 
 	def destroy
