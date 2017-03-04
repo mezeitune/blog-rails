@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'welcome/changesToDo'
   get '/dashboard', to: "welcome#dashboard"
   put "/articles/:id/publish", to: "articles#publish"
-  put "/articles/:id/toJson", to: "articles#toJson"
+  post "/articles/toJson", to: "articles#toJson"
 
 
 get '*path' => redirect('/') #Por si pone una URL inexistente  , lo redirecciona

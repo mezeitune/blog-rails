@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	#before_action :validate_user, except: [:show,:index] 
-	before_action :authenticate_user!, except: [:show,:index] 
-	before_action :set_article, except: [:index,:new,:create]
+	before_action :authenticate_user!, except: [:show,:index,:toJson] 
+	before_action :set_article, except: [:index,:new,:create,:toJson]
 	before_action :authenticate_editor!, only: [:new,:create,:update]
 	before_action :authenticate_admin!, only: [:destroy,:publish]
 	
@@ -43,8 +43,9 @@ class ArticlesController < ApplicationController
 		redirect_to @article
 	end
 
+	#POST /articles/toJson
 	def toJson
-		
+		@articleIdObject = Article.find(params[:id])
 	end
 
 	def destroy
