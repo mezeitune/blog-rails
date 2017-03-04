@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
 		redirect_to @article
 	end
 
-	#POST /articles/toJson
+	#PUT /articles/json/toJson
 	def toJson
 		@articleIdObject = Article.find(params[:id])
 	end

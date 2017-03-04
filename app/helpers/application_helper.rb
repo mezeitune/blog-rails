@@ -12,20 +12,19 @@ module ApplicationHelper
 	
 	end
 
-	# application_helper.rb
+
 	def articles_as_json(articles)
 	  articles.collect do |article|
 	    {
-	      :id => article.id,
-	      
+	      :id => comment.id,
+	      :level => comment.level,
+	      :content => html_format(comment.content),
+	      :parent_id => comment.parent_id,
+	      :user_id => comment.user_id,
+	      :created_at => comment.created_at
 	    }
 	  end.to_json
 	end
 
 end
-
-
-
-
-
 

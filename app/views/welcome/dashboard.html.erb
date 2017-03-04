@@ -6,5 +6,10 @@
 		<% if article.may_publish? %>
 		- <%= link_to "Publicar","/articles/#{article.id}/publish", method: :put %> 
 		<%end%>
+		-
+		<%= form_tag tojson_article_path, :method=>'put' do%>
+  		<%= hidden_field_tag :id, article.id %>
+ 		 <%= submit_tag 'New campus' %>
+		<% end %>
 	</div>
 <%end%>
