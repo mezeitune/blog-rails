@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 	before_action :set_article, except: [:index,:new,:create]
 	before_action :authenticate_editor!, only: [:new,:create,:update]
 	before_action :authenticate_admin!, only: [:destroy,:publish]
+	
 	#GET /articles
 	def index
 		#@articles = Article.publicados.ultimos #Usando scopes encadenados , esto es sin el paginate

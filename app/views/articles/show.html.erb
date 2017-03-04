@@ -1,5 +1,8 @@
+<%= article_cover @article.cover.url %> <!--Es un aplication helper -->
 <h1><%= @article.title %></h1>
 <% unless @article.user.nil? %>
+
+
 Escrito por<%= @article.user.email %>
 
 <%end%>
@@ -10,11 +13,11 @@ Visitas <%= @article.visits_count %>
 
 <%= link_to "Editar", edit_article_path(@article) %>
 
-
+<!--
 <div class="field">
 	<%= image_tag @article.cover.url(:thumb)%>
 </div>
-
+-->
 <div class="field">
 <% @article.categories.each do |category| %>
 	<h3><%= link_to category.name, category, style:"color:#{category.color}" %></h3>
@@ -27,7 +30,8 @@ Visitas <%= @article.visits_count %>
 <ul id="comments-box">
 	<% @article.comments.each do |comment| %>
 	<li>
-		<%= comment.body %> - <%= comment.user.email %>
+		<%= image_tag(comment.user.avatar, height: '32', width: '32') %>
+		<%= comment.body %> - <%= comment.user.email %> - <%= time_ago_in_words(comment.created_at) %> ago 
 	</li>
 
 	<%end%>
@@ -35,6 +39,10 @@ Visitas <%= @article.visits_count %>
 </div>
 
 <ul>
+
+
+	<%= @article.to_json %>
+
 </ul>
 
 </div>
