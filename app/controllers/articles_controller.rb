@@ -43,6 +43,10 @@ class ArticlesController < ApplicationController
 		redirect_to @article
 	end
 
+	def toJson
+		
+	end
+
 	def destroy
 		#@article = Article.find(params[:id])
 		@article.destroy

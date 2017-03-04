@@ -4,7 +4,8 @@
 	<div>
 		<%= article.body %> - <%= link_to "Elimminar",article, method: :delete %>
 		<% if article.may_publish? %>
-		- <%= link_to "Publicar","/articles/#{article.id}/publish", method: :put %>
+		- <%= link_to "Publicar","/articles/#{article.id}/publish", method: :put %> -
+		<%= link_to "Json","/articles/#{article.id}/toJson", method: :put %>
 		<%end%>
 	</div>
 <%end%>
