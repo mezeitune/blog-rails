@@ -21,7 +21,7 @@ class Article < ApplicationRecord
 
 	#scope :publicados, ->{ where(state: "published") }
 
-	def self.publicados
+	def self.publicados #los scopes son statics
 		Article.where(state:"published")
 	end
 
